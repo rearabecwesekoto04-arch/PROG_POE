@@ -8,7 +8,7 @@ namespace CybersecurityChatbot.GUI
 {
     public class TaskForm : Form
     {
-        // UI Controls
+        //UI Controls
         private TextBox _titleBox = null!;
         private TextBox _descBox = null!;
         private RadioButton _rdoDate = null!;
@@ -56,7 +56,7 @@ namespace CybersecurityChatbot.GUI
             StartPosition = FormStartPosition.CenterParent;
             FormBorderStyle = FormBorderStyle.Sizable;
 
-            // Header
+            //Header
             var header = new Panel
             {
                 Dock = DockStyle.Top,
@@ -79,7 +79,7 @@ namespace CybersecurityChatbot.GUI
                 BackColor = Color.Transparent
             });
 
-            // Input panel
+            //Input panel
             var inputPanel = new Panel
             {
                 Dock = DockStyle.Top,
@@ -88,7 +88,7 @@ namespace CybersecurityChatbot.GUI
                 Padding = new Padding(14)
             };
 
-            // Title
+            //Title
             inputPanel.Controls.Add(MakeLabel("Task Title:", new Point(14, 14)));
             _titleBox = new TextBox
             {
@@ -104,7 +104,7 @@ namespace CybersecurityChatbot.GUI
                 "e.g. Enable two-factor authentication on all accounts");
             inputPanel.Controls.Add(_titleBox);
 
-            // Description
+            //Description
             inputPanel.Controls.Add(MakeLabel("Description:", new Point(14, 50)));
             _descBox = new TextBox
             {
@@ -121,7 +121,7 @@ namespace CybersecurityChatbot.GUI
                 "Describe the cybersecurity task in detail...");
             inputPanel.Controls.Add(_descBox);
 
-            // Reminder label
+            //Reminder label
             inputPanel.Controls.Add(new Label
             {
                 Text = "Reminder:",
@@ -132,7 +132,7 @@ namespace CybersecurityChatbot.GUI
                 BackColor = Color.Transparent
             });
 
-            // Radio: Specific Date
+            //Radio: Specific Date
             _rdoDate = new RadioButton
             {
                 Text = "Specific Date:",
@@ -145,7 +145,7 @@ namespace CybersecurityChatbot.GUI
             };
             inputPanel.Controls.Add(_rdoDate);
 
-            // Date picker
+            //Date picker
             _datePicker = new DateTimePicker
             {
                 Location = new Point(258, 110),
