@@ -10,10 +10,10 @@ using CybersecurityChatbot.Data;
 
 namespace CybersecurityChatbot.GUI
 {
-    /// <summary>
-    /// Main GUI form for the Cybersecurity Awareness Chatbot (Part 3 POE).
-    /// Integrates: Task Assistant, Quiz, NLP, Activity Log, SQLite database.
-    /// </summary>
+    ///<summary>
+    ///Main GUI form for the Cybersecurity Awareness Chatbot (Part 3 POE).
+    ///Integrates: Task Assistant, Quiz, NLP, Activity Log, SQLite database.
+    ///</summary>
     public class ChatForm : Form
     {
         // UI Controls
