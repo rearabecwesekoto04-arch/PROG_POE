@@ -29,8 +29,7 @@ All tasks are stored in a MySQL database.
 
 ### Step 1 — Clone the Repository
 
-git clone https://github.com/YOUR_USERNAME/PROG_POE.git
-
+git clone https://github.com/rearabecwesekoto04-arch/PROG_POE.git
 ### Step 2 — Set Up the MySQL Database
 
 1. Open MySQL Workbench
