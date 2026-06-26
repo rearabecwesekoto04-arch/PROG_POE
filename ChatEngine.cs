@@ -4,20 +4,20 @@ using CybersecurityChatbot.Data;
 
 namespace PROG_Part1
 {
-    // Core engine that drives chatbot interactions using dictionary-based responses.
+    //Core engine that drives chatbot interactions using dictionary-based responses.
     
     public class ChatEngine
     {
         private string _userName = string.Empty;
 
-        // Dictionary: timestamp > message (conversation history)
+        //Dictionary: timestamp > message (conversation history)
         private readonly Dictionary<string, string> _conversationHistory = new Dictionary<string, string>();
         private int _historyIndex = 1;
 
-        // Dictionary: topic number > topic key (built when user types 'topics')
+        //Dictionary: topic number > topic key (built when user types 'topics')
         private readonly Dictionary<int, string> _topicNumberMap = new Dictionary<int, string>();
 
-        // Dictionary: sentiment keyword > response prefix
+        //Dictionary: sentiment keyword > response prefix
         private readonly Dictionary<string, string> _sentimentMap = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
         {
             { "Worried", "I understand your concern. " },
@@ -61,7 +61,7 @@ namespace PROG_Part1
                     continue;
                 }
 
-                // Log to history
+                //Log to history
                 _conversationHistory[$"[{_historyIndex++}] You"] = input;
 
                 string response = ProcessInput(input);
@@ -73,8 +73,8 @@ namespace PROG_Part1
                 }
                 else
                 {
-                    // Use PrintBotList for multi-line responses (topics, help, history)
-                    // Use PrintBot for single-line responses (word-wrap applied)
+                    //Use PrintBotList for multi-line responses (topics, help, history)
+                    //Use PrintBot for single-line responses (word-wrap applied)
                     if (response.Contains("\n"))
                     {
                         DisplayHelper.PrintBotList(response);
@@ -95,7 +95,7 @@ namespace PROG_Part1
         {
             string lowerInput = input.ToLower().Trim();
 
-            // Check if user typed a number to select a topic
+            //Check if user typed a number to select a topic
             if (int.TryParse(input.Trim(), out int topicNumber))
             {
                 if (_topicNumberMap.ContainsKey(topicNumber))
@@ -113,16 +113,16 @@ namespace PROG_Part1
                 }
             }
 
-            // Check commands first
+            //Check commands first
             if (ResponseBank.Commands.ContainsKey(lowerInput))
             {
                 return HandleCommand(lowerInput);
             }
 
-            // Check for sentiment keywords
+            //Check for sentiment keywords
             string sentimentPrefix = DetectSentiment(lowerInput);
 
-            // Check conversational / small-talk responses first
+            //Check conversational / small-talk responses first
             foreach (var entry in ResponseBank.ConversationalResponses)
             {
                 if (lowerInput.Contains(entry.Key.ToLower()))
@@ -131,7 +131,7 @@ namespace PROG_Part1
                 }
             }
 
-            // Search keyword responses
+            //Search keyword responses
             foreach (var entry in ResponseBank.KeywordResponses)
             {
                 if (lowerInput.Contains(entry.Key.ToLower()))
@@ -140,13 +140,13 @@ namespace PROG_Part1
                 }
             }
 
-            // Fallback
+            //Fallback
             return sentimentPrefix + $"I'm not sure about that, {_userName}. Try typing 'topics' to see what I can help with, or 'help' for commands.";
         }
 
         private string HandleCommand(string command)
         {
-            // Dictionary: command > handler method (using delegates)
+            //Dictionary: command > handler method (using delegates)
             Dictionary<string, Func<string>> commandHandlers = new Dictionary<string, Func<string>>(StringComparer.OrdinalIgnoreCase)
             {
                 { "Help",  ShowHelp },
