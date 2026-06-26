@@ -4,9 +4,9 @@ using CybersecurityChatbot.GUI;
 
 namespace CybersecurityChatbot
 {
-    /// <summary>
-    /// Entry point for Part 2 — launches the WinForms GUI chatbot.
-    /// </summary>
+    ///<summary>
+    ///Entry point for Part 2 — launches the WinForms GUI chatbot.
+    ///</summary>
     internal static class Program
     {
         [STAThread]
