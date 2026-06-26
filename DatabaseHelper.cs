@@ -12,7 +12,7 @@ namespace CybersecurityChatbot.Data
             "uid=root;" +
             "pwd=@Tlhologelo2001;";
 
-        // INITIALISE
+        //INITIALISE
         public static void Initialise()
         {
             using (MySqlConnection connection = new MySqlConnection(ConnectionString))
@@ -34,7 +34,7 @@ namespace CybersecurityChatbot.Data
             }
         }
 
-        // CREATE
+        //CREATE
         public static int AddTask(string title, string description, string? reminderDate = null)
         {
             using (MySqlConnection connection = new MySqlConnection(ConnectionString))
